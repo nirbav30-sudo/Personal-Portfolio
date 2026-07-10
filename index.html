@@ -22,7 +22,7 @@
     <div class="rail__tabs" id="railTabs">
       <a class="rail__tab" data-target="hero" data-text="Cover">Cover</a>
       <a class="rail__tab" data-target="about" data-text="About">About</a>
-      <a class="rail__tab" data-target="trajectory" data-text="Track Record">Track Record</a>
+      <a class="rail__tab" data-target="trajectory" data-text="Record">Record</a>
       <a class="rail__tab" data-target="ventures" data-text="Ventures">Ventures</a>
       <a class="rail__tab" data-target="education" data-text="Education">Education</a>
       <a class="rail__tab" data-target="contact" data-text="Contact">Contact</a>
@@ -47,7 +47,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <a data-target="hero">Cover</a>
     <a data-target="about">About</a>
-    <a data-target="trajectory">Track Record</a>
+    <a data-target="trajectory">Record</a>
     <a data-target="ventures">Ventures</a>
     <a data-target="education">Education</a>
     <a data-target="contact">Contact</a>
@@ -63,7 +63,7 @@
       <div class="stamp" id="stamp">Cleared<br>for<br>Ascent</div>
       <div class="hero-content">
         <div class="file-tag star-border"><span>FILE NO. 2029-09</span><b>SUBJECT: N. SANKAR</b><span>STATUS: ACTIVE</span></div>
-        <h1 class="name"><span class="decrypt" data-text="Nirbav">Nirbav</span><br><em class="decrypt shiny" data-text="Sankar.">Sankar.</em></h1>
+        <h1 class="name" id="heroName"><span class="decrypt" data-text="Nirbav">Nirbav</span><br><em class="decrypt shiny" data-text="Sankar.">Sankar.</em></h1>
         <div class="role-lines">
           <div class="role-line">I'm a founder building tools that turn student ideas into working projects</div>
           <div class="role-line">I'm a NASA Citizen Scientist, reading light curves for signs of distant worlds</div>
@@ -115,7 +115,7 @@
             <div class="dossier-card spotlight">
               <h4>Field notes</h4>
               <div class="dossier-row"><span>Home base</span><span>Dubai, UAE</span></div>
-              <div class="dossier-row"><span>Current focus</span><span>lunitiAI · Aspire.AI</span></div>
+              <div class="dossier-row"><span>Current focus</span><span>LunitiAI · Aspire.AI</span></div>
               <div class="dossier-row"><span>Research interest</span><span>Fusion propulsion</span></div>
               <div class="dossier-row"><span>Citizen scientist</span><span>Light transit data</span></div>
               <div class="dossier-row"><span>Committee record</span><span>Chair · Delegate · Director</span></div>
@@ -150,7 +150,7 @@
               <div class="traj-node"></div>
               <div class="traj-date">Jun 2026 — Present</div>
               <h3>Co-Founder</h3>
-              <div class="org">lunitiAI</div>
+              <div class="org">LunitiAI</div>
               <p class="desc">I'm building an AI co-founder for early-stage builders — running the difficult, unglamorous tasks so founders can focus on structuring the actual startup.</p>
             </div>
 
@@ -203,7 +203,7 @@
           <div class="venture spotlight">
             <div class="venture-code">V.02</div>
             <div>
-              <h3>lunitiAI</h3>
+              <h3>LunitiAI</h3>
               <p>An AI co-founder I'm building for early-stage founders — handling the difficult operational tasks of running a startup while the founding team focuses on structure and strategy. Currently pre-launch and building out a waitlist.</p>
               <div class="venture-tags"><span>Co-Founder</span><span>Early Stage</span></div>
             </div>
@@ -248,7 +248,7 @@
           <div class="venture spotlight venture--sealed" id="sealedVenture">
             <div class="venture-code">V.07</div>
             <div>
-              <h3>Untitled Fantasy Series <span class="tba-tag">TBA</span></h3>
+              <h3>Untitled Fantasy Series <span class="tba-tag" id="tbaTag" title="click me">TBA</span></h3>
               <p class="sealed-copy"><span class="redacted">A world where</span> <span class="redacted">the magic system runs on</span> <span class="redacted">and the protagonist absolutely does not</span> — a full fantasy series, currently being drafted. Details sealed until release. Hover if you must; the ink is classified.</p>
               <div class="venture-tags"><span>Fiction</span><span>Worldbuilding</span><span>In Draft</span></div>
             </div>
@@ -304,6 +304,8 @@
           </div>
           <div class="contact-links">
             <a class="magnet" href="https://www.linkedin.com/in/nirbav-sankar-9b287b400/" target="_blank" rel="noopener">LinkedIn <span>→ Connect</span></a>
+            <a class="magnet" href="https://x.com/Nirbav" target="_blank" rel="noopener">X / Twitter <span>@Nirbav</span></a>
+            <a class="magnet" href="https://instagram.com/tfw_nirbav_" target="_blank" rel="noopener">Instagram <span>@tfw_nirbav_</span></a>
             <a class="magnet" href="#hero" data-target="hero">Back to cover <span>↑ Top</span></a>
           </div>
         </div>
@@ -499,15 +501,17 @@
 
   // ============ ReactBits: ScrollVelocity marquee ============
   const marqueeTrack = document.getElementById('marqueeTrack');
+  var marqueeDir = 1;
   let mx = 0, lastY = scrollY, vel = 0;
   if(!prefersReduced){
     (function marqueeLoop(){
       const dy = scrollY - lastY;
       lastY = scrollY;
       vel += (Math.abs(dy) * 0.25 - vel) * 0.1;
-      mx -= 0.6 + vel;
+      mx -= (0.6 + vel) * marqueeDir;
       const half = marqueeTrack.scrollWidth / 2;
       if(-mx >= half) mx += half;
+      if(mx > 0) mx -= half;
       marqueeTrack.style.transform = `translateX(${mx}px)`;
       requestAnimationFrame(marqueeLoop);
     })();
@@ -819,6 +823,10 @@
     typed = (typed + e.key).slice(-6);
     if(typed.endsWith("chess")) showToast("1. e4 — your move. (FIDE-rated, remember?)");
     if(typed.endsWith("dragon")) showToast("📖 The fantasy series has dragons? Neither confirmed nor denied. TBA.");
+    if(typed.endsWith("codm")) codmMode();
+    if(typed.endsWith("boca")) bocaMode();
+    if(typed.endsWith("love")) romanceMode();
+    if(typed.endsWith("luniti")) rocketFlyby();
   });
 
   // ============ EASTER EGG 6: hold EXHIBIT A photo ============
@@ -829,9 +837,195 @@
   photoCard.addEventListener('pointerup', () => clearTimeout(holdTimer));
   photoCard.addEventListener('pointerleave', () => clearTimeout(holdTimer));
 
-  // ============ EASTER EGG 7: console ============
+
+  // ============ EGG 9: type "codm" → tactical scope mode ============
+  // ============ EGG 10: type "boca" → azul y oro ============
+  // ============ EGG 11: type "love" → romance mode ============
+  // ============ EGG 12: type "luniti" → rocket flyby ============
+  function rocketFlyby(){
+    const r = document.createElement('div');
+    r.className = 'rocket';
+    r.textContent = '🚀';
+    document.body.appendChild(r);
+    setTimeout(() => r.remove(), 2600);
+    showToast("LunitiAI: launch sequence nominal.");
+  }
+  function bocaMode(){
+    if(document.body.classList.contains('boca')) return;
+    document.body.classList.add('boca');
+    showToast("💙💛💙 La Mitad Más Uno. Vamos Boca. 💙💛💙");
+    // blue & gold confetti
+    for(let i=0;i<70;i++){
+      setTimeout(() => {
+        const c = document.createElement('span');
+        c.className = 'boca-confetti';
+        c.style.left = Math.random()*100 + 'vw';
+        c.style.background = Math.random() < 0.5 ? 'var(--boca-blue)' : 'var(--boca-gold)';
+        c.style.animationDuration = (2.2 + Math.random()*2.4) + 's';
+        c.style.width = c.style.height = (5 + Math.random()*7) + 'px';
+        c.style.setProperty('--drift', (Math.random()*120-60) + 'px');
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 5000);
+      }, i*45);
+    }
+    // bouncing ball across screen
+    const ball = document.createElement('div');
+    ball.className = 'boca-ball';
+    ball.textContent = '⚽';
+    document.body.appendChild(ball);
+    setTimeout(() => ball.remove(), 4200);
+    // chant banner
+    const chant = document.createElement('div');
+    chant.className = 'boca-chant';
+    chant.innerHTML = '<div class="boca-chant__track"><span>DALE DALE BOCA ✦ LA BOMBONERA NO TIEMBLA, LATE ✦ AZUL Y ORO ✦ DALE DALE BOCA ✦ LA BOMBONERA NO TIEMBLA, LATE ✦ AZUL Y ORO ✦&nbsp;</span></div>';
+    document.body.appendChild(chant);
+    setTimeout(() => chant.remove(), 6000);
+    setTimeout(() => document.body.classList.remove('boca'), 6000);
+  }
+  function codmMode(){
+    if(document.getElementById('scope')) return;
+    const s = document.createElement('div');
+    s.id = 'scope';
+    s.innerHTML = '<div class="scope__ring"></div><div class="scope__h"></div><div class="scope__v"></div><div class="scope__label">TACTICAL MODE — 10s</div><div class="killfeed" id="killfeed"></div>';
+    document.body.appendChild(s);
+    document.body.classList.add('codm');
+    showToast("🎯 CODM sweat detected. Scope equipped. Drop-shotting the whiteboard.");
+    const move = e => { s.style.setProperty('--sx', e.clientX + 'px'); s.style.setProperty('--sy', e.clientY + 'px'); };
+    window.addEventListener('mousemove', move);
+    // killfeed
+    const feed = document.getElementById('killfeed');
+    const kills = [
+      'NIRBAV [🔪] procrastination',
+      'NIRBAV [⚡] the physics test',
+      'NIRBAV [🎯] sleep schedule',
+      'NIRBAV [💥] unmod caucus',
+      'NIRBAV [🏆] 150+ teams'
+    ];
+    kills.forEach((k, i) => setTimeout(() => {
+      const line = document.createElement('div');
+      line.className = 'killfeed__line';
+      line.textContent = k;
+      feed.appendChild(line);
+      setTimeout(() => line.classList.add('out'), 2400);
+    }, 700 + i*1500));
+    // hitmarkers on click
+    const hit = e => {
+      const hm = document.createElement('div');
+      hm.className = 'hitmarker';
+      hm.style.left = e.clientX + 'px';
+      hm.style.top = e.clientY + 'px';
+      document.body.appendChild(hm);
+      setTimeout(() => hm.remove(), 350);
+    };
+    window.addEventListener('click', hit);
+    setTimeout(() => {
+      s.remove(); document.body.classList.remove('codm');
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('click', hit);
+      // victory banner
+      const v = document.createElement('div');
+      v.className = 'victory';
+      v.innerHTML = '<b>VICTORY</b><span>SUBJECT SURVIVES ANOTHER SCRIM</span>';
+      document.body.appendChild(v);
+      setTimeout(() => v.remove(), 2600);
+    }, 10000);
+  }
+  let romance = false;
+  function romanceMode(){
+    romance = !romance;
+    if(romance){
+      document.body.classList.add('romance');
+      showToast("🌹 romance mode: on. every song is about someone.");
+      // heart rain
+      for(let i=0;i<26;i++){
+        setTimeout(() => {
+          const hEl = document.createElement('span');
+          hEl.className = 'heart';
+          hEl.textContent = ['❤','🌹','💌','♡'][Math.floor(Math.random()*4)];
+          hEl.style.left = Math.random()*100 + 'vw';
+          hEl.style.animationDuration = (3 + Math.random()*3) + 's';
+          hEl.style.fontSize = (0.8 + Math.random()*1.2) + 'rem';
+          document.body.appendChild(hEl);
+          setTimeout(() => hEl.remove(), 6500);
+        }, i*140);
+      }
+    } else {
+      document.body.classList.remove('romance');
+      showToast("romance mode: off. back to business.");
+    }
+  }
+
+  // ============ EGG 13: click hero name 5x → letters scatter ============
+  let nameClicks = 0;
+  const heroName = document.getElementById('heroName');
+  heroName.addEventListener('click', () => {
+    nameClicks++;
+    if(nameClicks === 5){
+      nameClicks = 0;
+      const spans = heroName.querySelectorAll('.decrypt, em');
+      heroName.classList.add('scattering');
+      // split letters
+      heroName.querySelectorAll('.decrypt').forEach(el => {
+        const txt = el.dataset.text;
+        el.innerHTML = txt.split('').map(c =>
+          `<span class="fall" style="--dx:${(Math.random()*160-80).toFixed(0)}px;--rot:${(Math.random()*140-70).toFixed(0)}deg;--del:${(Math.random()*0.25).toFixed(2)}s">${c}</span>`
+        ).join('');
+      });
+      showToast("you broke my name. rebuilding…");
+      setTimeout(() => {
+        heroName.classList.remove('scattering');
+        heroName.querySelectorAll('.decrypt').forEach(el => decrypt(el));
+      }, 1800);
+    }
+  });
+
+  // ============ EGG 14: double-click marquee → reverse ============
+  document.querySelector('.marquee').addEventListener('dblclick', () => {
+    marqueeDir *= -1;
+    showToast(marqueeDir === -1 ? "ticker reversed. chaos." : "ticker restored. order.");
+  });
+
+  // ============ EGG 15: TBA tag → chapter one typewriter ============
+  document.getElementById('tbaTag').addEventListener('click', e => {
+    e.stopPropagation();
+    if(document.getElementById('chapterOverlay')) return;
+    const o = document.createElement('div');
+    o.id = 'chapterOverlay';
+    o.innerHTML = '<div class="chapter__card"><div class="chapter__head">MANUSCRIPT FRAGMENT — RECOVERED</div><p id="chapterText"></p><button id="chapterClose">burn after reading</button></div>';
+    document.body.appendChild(o);
+    const target = "The sky over the city cracked like old parchment, and somewhere below it, a boy who was supposed to be studying for his physics test decided the world could wait.\n\n— chapter one. the rest is TBA. obviously.";
+    const p = document.getElementById('chapterText');
+    let ci = 0;
+    const tw = setInterval(() => {
+      p.textContent = target.slice(0, ++ci);
+      if(ci >= target.length) clearInterval(tw);
+    }, 22);
+    document.getElementById('chapterClose').addEventListener('click', () => { clearInterval(tw); o.remove(); });
+  });
+
+  // ============ EGG 16: read to the very end → wax seal ============
+  let endStamped = false;
+  window.addEventListener('scroll', () => {
+    if(endStamped) return;
+    if(innerHeight + scrollY >= document.body.scrollHeight - 8){
+      endStamped = true;
+      document.getElementById('footerHint').innerHTML = '✅ FILE READ IN FULL · REVIEWER: <b style="color:var(--brass-bright)">YOU</b>';
+      showToast("📁 You read the entire file. HR will be notified (positively).");
+    }
+  }, { passive:true });
+
+  // ============ EGG 17: idle 35s → subject notices ============
+  let idleTimer;
+  function resetIdle(){
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => showToast("👀 the subject is aware you're just staring at the file."), 35000);
+  }
+  ['mousemove','keydown','scroll','click','touchstart'].forEach(ev => window.addEventListener(ev, resetIdle, { passive:true }));
+  resetIdle();
+
+  // ============ EASTER EGG 18: console ============
   console.log("%cFILE NO. 2029-09 — RESTRICTED", "font-family:monospace;font-size:16px;color:#E4BE4A;background:#0B1220;padding:8px 14px;border:1px solid #C9A227;");
-  console.log("%cInspecting the file, are we? Try: Konami code · click the seal 5x · type 'chess' · type 'dragon' · press-and-hold Exhibit A · the button you were told not to click.", "font-family:monospace;color:#9AA3B5;");
+  console.log("%cInspecting the file, are we? 17 eggs are hidden in this file. Some hints: konami · seal x5 · stamp x3 · 'chess' · 'dragon' · 'codm' · 'boca' · 'love' · 'luniti' · hold Exhibit A · click my name 5x · double-click the ticker · the TBA tag · read to the very end · go idle · the button. One is a mystery.", "font-family:monospace;color:#9AA3B5;");
   </script>
 </body>
 </html>
