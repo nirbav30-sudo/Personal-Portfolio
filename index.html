@@ -12,8 +12,10 @@
 </head>
 <body>
 
-  <!-- click spark layer -->
+  <!-- effect layers -->
   <canvas id="sparkCanvas" aria-hidden="true"></canvas>
+  <div id="cursorBlob" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
 
   <nav class="rail" aria-label="Section navigation">
     <div class="rail__mark">N.S.</div>
@@ -25,12 +27,22 @@
       <a class="rail__tab" data-target="education" data-text="Education">Education</a>
       <a class="rail__tab" data-target="contact" data-text="Contact">Contact</a>
     </div>
-    <div class="rail__seal" id="railSeal" title="">EST<br>2029</div>
+    <div class="rail__bottom">
+      <button class="audio-btn" id="audioBtn" aria-label="Toggle music" title="evidence tape // lo-fi">
+        <span class="audio-bars"><i></i><i></i><i></i><i></i></span>
+      </button>
+      <div class="rail__seal" id="railSeal">EST<br>2029</div>
+    </div>
   </nav>
 
   <div class="mobile-bar">
     <div class="mobile-bar__mark">N.SANKAR — FILE</div>
-    <button class="mobile-bar__toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+    <div class="mobile-bar__right">
+      <button class="audio-btn audio-btn--mobile" id="audioBtnMobile" aria-label="Toggle music">
+        <span class="audio-bars"><i></i><i></i><i></i><i></i></span>
+      </button>
+      <button class="mobile-bar__toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+    </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a data-target="hero">Cover</a>
@@ -47,6 +59,7 @@
     <section id="hero">
       <canvas id="starfield"></canvas>
       <div class="hero-grid"></div>
+      <div class="aurora" aria-hidden="true"></div>
       <div class="stamp" id="stamp">Cleared<br>for<br>Ascent</div>
       <div class="hero-content">
         <div class="file-tag star-border"><span>FILE NO. 2029-09</span><b>SUBJECT: N. SANKAR</b><span>STATUS: ACTIVE</span></div>
@@ -57,36 +70,59 @@
           <div class="role-line">I'm an MUN delegate, chair, and repeat offender in committee rooms</div>
         </div>
         <div class="hero-meta">
-          <span><b>Dubai, UAE</b>Based &amp; building</span>
-          <span><b>Grade 9</b>GEMS Our Own High School</span>
-          <span><b>Class of 2029</b>Next stop: the world</span>
+          <span><b><span class="countup" data-to="2">0</span> ventures</b>live &amp; building</span>
+          <span><b><span class="countup" data-to="150">0</span>+ teams</b>outranked at Curtin STEM</span>
+          <span><b>Class of <span class="countup" data-to="2029">1990</span></b>Next stop: the world</span>
         </div>
       </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span>OPEN FILE</div>
     </section>
+
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack">
+        <span>ASPIRE.AI ✦ LUNITIAI ✦ NASA CITIZEN SCIENTIST ✦ MUN CIRCUIT ✦ TEAM VELORA ✦ FALCON MOTORSPORTS ✦ FIDE-RATED ✦ FANTASY SERIES: TBA ✦&nbsp;</span>
+        <span>ASPIRE.AI ✦ LUNITIAI ✦ NASA CITIZEN SCIENTIST ✦ MUN CIRCUIT ✦ TEAM VELORA ✦ FALCON MOTORSPORTS ✦ FIDE-RATED ✦ FANTASY SERIES: TBA ✦&nbsp;</span>
+      </div>
+    </div>
 
     <!-- ================= ABOUT ================= -->
     <section id="about" class="on-paper">
       <div class="section-inner reveal">
         <div class="section-head">
           <div class="eyebrow">01 — About the subject</div>
-          <h2>My days are diplomacy.<br>My nights are astrophysics.</h2>
+          <h2 class="blur-reveal">My days are diplomacy.<br>My nights are astrophysics.</h2>
         </div>
         <div class="about-grid">
           <div class="about-copy">
             <p class="lede">I'm fourteen years old, chronically over-committed, and fairly sure sleep is a scheduling problem rather than a biological one.</p>
             <p>I split my time between Model UN committee rooms and the kind of physics rabbit holes that don't come up in the Grade 9 syllabus — right now, a theoretical spacecraft concept using fusion acceleration and particle accelerators to push toward a meaningful fraction of light speed for interstellar travel.</p>
-            <p>I'm also building in public: Aspire.AI started as a way to help students turn raw ideas into real, working projects instead of just another slide deck, and that same instinct now runs through my work as a co-founder, a NASA Citizen Scientist on stellar occultation data, and Chief of Design on my school's F1 in Schools team.</p>
-            <p>When I'm not doing any of that, I'm writing on Medium about AI and computer science, learning why my microcontrollers keep breaking, or playing FIDE-rated chess.</p>
+            <p>I'm also building in public: Aspire.AI started as a way to help students turn raw ideas into real, working projects instead of just another slide deck, and that same instinct now runs through my work as a co-founder, a NASA Citizen Scientist on light transit data, and Chief of Design in F1 in Schools.</p>
+            <p>When I'm not doing any of that, I'm writing on Medium about AI and computer science, drafting a fantasy series, learning why my microcontrollers keep breaking, or playing FIDE-rated chess.</p>
           </div>
-          <div class="dossier-card spotlight">
-            <h4>Field notes</h4>
-            <div class="dossier-row"><span>Home base</span><span>Dubai, UAE</span></div>
-            <div class="dossier-row"><span>Current focus</span><span>lunitiAI · Aspire.AI</span></div>
-            <div class="dossier-row"><span>Research interest</span><span>Fusion propulsion</span></div>
-            <div class="dossier-row"><span>Citizen scientist</span><span>Stellar occultation</span></div>
-            <div class="dossier-row"><span>Committee record</span><span>Chair · Delegate · Director</span></div>
-            <div class="dossier-row"><span>Languages</span><span>English, Hindi, Tamil, Arabic</span></div>
-            <div class="dossier-row"><span>Known weaknesses</span><span>Innovation competitions</span></div>
+          <div class="about-side">
+            <figure class="photo-card tilt" id="photoCard">
+              <div class="photo-card__inner">
+                <div class="photo-card__tape" aria-hidden="true"></div>
+                <img src="nirbav.jpg" alt="Nirbav Sankar delivering a speech at the SODMUN IV podium">
+                <div class="photo-card__glare" aria-hidden="true"></div>
+                <figcaption>
+                  <span>EXHIBIT A</span>
+                  <span>SUBJECT AT THE DAIS — SODMUN IV</span>
+                </figcaption>
+              </div>
+            </figure>
+            <div class="dossier-card spotlight">
+              <h4>Field notes</h4>
+              <div class="dossier-row"><span>Home base</span><span>Dubai, UAE</span></div>
+              <div class="dossier-row"><span>Current focus</span><span>lunitiAI · Aspire.AI</span></div>
+              <div class="dossier-row"><span>Research interest</span><span>Fusion propulsion</span></div>
+              <div class="dossier-row"><span>Citizen scientist</span><span>Light transit data</span></div>
+              <div class="dossier-row"><span>Committee record</span><span>Chair · Delegate · Director</span></div>
+              <div class="dossier-row"><span>Languages</span><span>English, Hindi, Tamil, Arabic</span></div>
+              <div class="dossier-row"><span>In the drawer</span><span>A fantasy series — TBA</span></div>
+              <div class="dossier-row"><span>Known weaknesses</span><span>Innovation competitions</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -97,7 +133,7 @@
       <div class="section-inner reveal">
         <div class="section-head">
           <div class="eyebrow">02 — Track record</div>
-          <h2>Current trajectory</h2>
+          <h2 class="blur-reveal">Current trajectory</h2>
           <p>Logged chronologically, most recent first — the way a flight path is read.</p>
         </div>
 
@@ -151,7 +187,7 @@
       <div class="section-inner reveal">
         <div class="section-head">
           <div class="eyebrow">03 — Ventures &amp; builds</div>
-          <h2>Things actually shipped —<br>or being shipped.</h2>
+          <h2 class="blur-reveal">Things actually shipped —<br>or being shipped.</h2>
         </div>
         <div class="venture-list">
 
@@ -185,18 +221,36 @@
           <div class="venture spotlight">
             <div class="venture-code">V.04</div>
             <div>
-              <h3>Team Velora — F1 in Schools</h3>
-              <p>I'm the Chief of Design on a competitive F1 in Schools team. We finished among the top 6 of over 150 teams at the Curtin University Dubai STEM Competition.</p>
-              <div class="venture-tags"><span>Chief of Design</span><span>Top 6 / 150+ teams</span></div>
+              <h3>Team Velora</h3>
+              <p>A student-led group I help drive that competes across a range of competitions — from innovation challenges to STEM events. We finished among the top 6 of over 150 teams at the Curtin University Dubai STEM Competition.</p>
+              <div class="venture-tags"><span>Student-Led</span><span>Top 6 / 150+ teams</span><span>Multi-Competition</span></div>
             </div>
           </div>
 
           <div class="venture spotlight">
             <div class="venture-code">V.05</div>
             <div>
-              <h3>Stellar Occultation Research</h3>
-              <p>I contribute as a NASA Citizen Scientist, analyzing light transit and stellar occultation data as part of ongoing observational astronomy work.</p>
-              <div class="venture-tags"><span>NASA Citizen Science</span><span>Astronomy</span></div>
+              <h3>Falcon Motorsports — F1 in Schools</h3>
+              <p>I'm the Chief of Design on Falcon Motorsports, our competitive F1 in Schools team — owning the car's design language, CAD direction, and the visual identity the team races under.</p>
+              <div class="venture-tags"><span>Chief of Design</span><span>F1 in Schools</span><span>CAD</span></div>
+            </div>
+          </div>
+
+          <div class="venture spotlight">
+            <div class="venture-code">V.06</div>
+            <div>
+              <h3>Light Transit Research</h3>
+              <p>I contribute as a NASA Citizen Scientist, analyzing light transit data — reading dips in stellar brightness for the signatures of passing worlds — as part of ongoing observational astronomy work.</p>
+              <div class="venture-tags"><span>NASA Citizen Science</span><span>Transit Photometry</span><span>Astronomy</span></div>
+            </div>
+          </div>
+
+          <div class="venture spotlight venture--sealed" id="sealedVenture">
+            <div class="venture-code">V.07</div>
+            <div>
+              <h3>Untitled Fantasy Series <span class="tba-tag">TBA</span></h3>
+              <p class="sealed-copy"><span class="redacted">A world where</span> <span class="redacted">the magic system runs on</span> <span class="redacted">and the protagonist absolutely does not</span> — a full fantasy series, currently being drafted. Details sealed until release. Hover if you must; the ink is classified.</p>
+              <div class="venture-tags"><span>Fiction</span><span>Worldbuilding</span><span>In Draft</span></div>
             </div>
           </div>
 
@@ -209,7 +263,7 @@
       <div class="section-inner reveal">
         <div class="section-head">
           <div class="eyebrow">04 — Education &amp; honors</div>
-          <h2>Credentials on file</h2>
+          <h2 class="blur-reveal">Credentials on file</h2>
         </div>
         <div class="ed-grid">
           <div class="ed-block">
@@ -239,14 +293,13 @@
 
     <!-- ================= CONTACT ================= -->
     <section id="contact">
+      <div class="letter-glitch" id="letterGlitch" aria-hidden="true"></div>
       <div class="section-inner reveal">
         <div class="contact-inner">
           <div>
             <div class="eyebrow">05 — Close the file, open a conversation</div>
-            <h2>Got an idea to pitch?<br>I gotchu.</h2>
+            <h2 class="blur-reveal">Got an idea to pitch?<br>I gotchu.</h2>
             <p>I'm always open to conversations about AI, research collaborations, Model UN, or the next competition worth losing sleep over.</p>
-
-            <!-- EASTER EGG: the button -->
             <button class="danger-btn" id="dangerBtn">DO NOT CLICK</button>
           </div>
           <div class="contact-links">
@@ -270,6 +323,7 @@
       <div class="classified__stamp">TOP SECRET</div>
       <h3>ADDENDUM — EYES ONLY</h3>
       <p>Subject has been observed sleeping. Twice. Investigation ongoing.</p>
+      <p>Also on record: fragments of a fantasy manuscript. Chapter one is, quote, "actually fire."</p>
       <p class="classified__small">You found the seal. There are more.</p>
       <button id="classifiedClose">Reseal file</button>
     </div>
@@ -278,6 +332,8 @@
   <div class="toast" id="toast"></div>
 
   <script>
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ============ Starfield ============
   const canvas = document.getElementById('starfield');
   const ctx = canvas.getContext('2d');
@@ -295,7 +351,6 @@
     }));
   }
   let t = 0;
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function drawStars(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle = '#F1E9D8';
@@ -313,7 +368,7 @@
   sizeCanvas(); drawStars();
   window.addEventListener('resize', sizeCanvas);
 
-  // ============ ReactBits: DecryptedText (hero name) ============
+  // ============ ReactBits: DecryptedText ============
   const GLYPHS = "!<>-_\\/[]{}—=+*^?#________";
   function decrypt(el){
     const target = el.dataset.text;
@@ -332,7 +387,7 @@
   }
   document.querySelectorAll('.decrypt').forEach((el, i) => setTimeout(() => decrypt(el), 250 + i*300));
 
-  // ============ ReactBits: TextScramble on hover (rail tabs) ============
+  // ============ ReactBits: TextScramble hover (rail tabs) ============
   document.querySelectorAll('.rail__tab').forEach(tab => {
     let iv = null;
     tab.addEventListener('mouseenter', () => {
@@ -359,6 +414,45 @@
       card.style.setProperty('--my', (e.clientY - r.top) + 'px');
     });
   });
+
+  // ============ ReactBits: TiltCard + GlareHover (photo) ============
+  const photoCard = document.getElementById('photoCard');
+  if(photoCard && !prefersReduced){
+    const inner = photoCard.querySelector('.photo-card__inner');
+    const glare = photoCard.querySelector('.photo-card__glare');
+    photoCard.addEventListener('mousemove', e => {
+      const r = photoCard.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      inner.style.transform = `rotateY(${(px - 0.5) * 16}deg) rotateX(${(0.5 - py) * 12}deg) scale(1.02)`;
+      glare.style.background = `radial-gradient(circle at ${px*100}% ${py*100}%, rgba(255,247,221,0.35), transparent 55%)`;
+      glare.style.opacity = 1;
+    });
+    photoCard.addEventListener('mouseleave', () => {
+      inner.style.transform = '';
+      glare.style.opacity = 0;
+    });
+  }
+
+  // ============ ReactBits: CountUp ============
+  const countObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      const el = entry.target;
+      countObs.unobserve(el);
+      const to = parseInt(el.dataset.to, 10);
+      const from = parseInt(el.textContent, 10) || 0;
+      if(prefersReduced){ el.textContent = to; return; }
+      const start = performance.now(), dur = 1400;
+      (function tick(now){
+        const p = Math.min(1, (now - start) / dur);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(from + (to - from) * ease);
+        if(p < 1) requestAnimationFrame(tick);
+      })(start);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.countup').forEach(el => countObs.observe(el));
 
   // ============ ReactBits: ClickSpark ============
   const sc = document.getElementById('sparkCanvas');
@@ -390,7 +484,36 @@
     requestAnimationFrame(sparkLoop);
   })();
 
-  // ============ ReactBits: Magnet (contact links) ============
+  // ============ ReactBits: BlobCursor (dark sections) ============
+  const blob = document.getElementById('cursorBlob');
+  if(!prefersReduced && matchMedia('(pointer:fine)').matches){
+    let bx = innerWidth/2, by = innerHeight/2, tx = bx, ty = by;
+    window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+    (function blobLoop(){
+      bx += (tx - bx) * 0.08;
+      by += (ty - by) * 0.08;
+      blob.style.transform = `translate(${bx}px, ${by}px) translate(-50%,-50%)`;
+      requestAnimationFrame(blobLoop);
+    })();
+  } else { blob.style.display = 'none'; }
+
+  // ============ ReactBits: ScrollVelocity marquee ============
+  const marqueeTrack = document.getElementById('marqueeTrack');
+  let mx = 0, lastY = scrollY, vel = 0;
+  if(!prefersReduced){
+    (function marqueeLoop(){
+      const dy = scrollY - lastY;
+      lastY = scrollY;
+      vel += (Math.abs(dy) * 0.25 - vel) * 0.1;
+      mx -= 0.6 + vel;
+      const half = marqueeTrack.scrollWidth / 2;
+      if(-mx >= half) mx += half;
+      marqueeTrack.style.transform = `translateX(${mx}px)`;
+      requestAnimationFrame(marqueeLoop);
+    })();
+  }
+
+  // ============ ReactBits: Magnet ============
   document.querySelectorAll('.magnet').forEach(el => {
     el.addEventListener('mousemove', e => {
       if(prefersReduced) return;
@@ -401,6 +524,33 @@
     });
     el.addEventListener('mouseleave', () => el.style.transform = '');
   });
+
+  // ============ ReactBits: LetterGlitch (contact bg) ============
+  const glitchHost = document.getElementById('letterGlitch');
+  const GLITCH_CHARS = "ANIRBVSK2029■□▪—/\\|<>_";
+  if(!prefersReduced){
+    for(let i=0;i<70;i++){
+      const s = document.createElement('span');
+      s.textContent = GLITCH_CHARS[Math.floor(Math.random()*GLITCH_CHARS.length)];
+      s.style.left = Math.random()*100 + '%';
+      s.style.top = Math.random()*100 + '%';
+      s.style.animationDelay = (Math.random()*4) + 's';
+      s.style.animationDuration = (2 + Math.random()*4) + 's';
+      glitchHost.appendChild(s);
+    }
+    setInterval(() => {
+      const kids = glitchHost.children;
+      if(!kids.length) return;
+      const k = kids[Math.floor(Math.random()*kids.length)];
+      k.textContent = GLITCH_CHARS[Math.floor(Math.random()*GLITCH_CHARS.length)];
+    }, 120);
+  }
+
+  // ============ Blur reveal on headings ============
+  const blurObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); blurObs.unobserve(e.target); } });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.blur-reveal').forEach(el => blurObs.observe(el));
 
   // ============ Reveal on scroll ============
   const io = new IntersectionObserver(entries => {
@@ -457,14 +607,132 @@
     document.getElementById('mobileToggle').setAttribute('aria-expanded', menu.classList.contains('open'));
   });
 
-  // ============ Toast helper ============
+  // ============ MUSIC: generative lo-fi "evidence tape" (Web Audio) ============
+  let audioCtx = null, musicOn = false, schedulerId = null;
+  const A_MINOR = [220.00, 261.63, 329.63, 392.00, 440.00, 523.25]; // A C E G A C
+  const CHORDS = [
+    [220.00, 261.63, 329.63],      // Am
+    [174.61, 220.00, 261.63],      // F
+    [196.00, 246.94, 293.66],      // G
+    [164.81, 196.00, 246.94]       // Em
+  ];
+  function startMusic(){
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    audioCtx.resume();
+    const master = audioCtx.createGain();
+    master.gain.value = 0.22;
+    // gentle tape-warmth lowpass on everything
+    const lp = audioCtx.createBiquadFilter();
+    lp.type = 'lowpass'; lp.frequency.value = 3200;
+    master.connect(lp); lp.connect(audioCtx.destination);
+    // vinyl crackle
+    const noiseBuf = audioCtx.createBuffer(1, audioCtx.sampleRate * 2, audioCtx.sampleRate);
+    const nd = noiseBuf.getChannelData(0);
+    for(let i=0;i<nd.length;i++) nd[i] = (Math.random()*2-1) * (Math.random() < 0.002 ? 0.5 : 0.015);
+    const crackle = audioCtx.createBufferSource();
+    crackle.buffer = noiseBuf; crackle.loop = true;
+    const cg = audioCtx.createGain(); cg.gain.value = 0.5;
+    crackle.connect(cg); cg.connect(master); crackle.start();
+
+    const BPM = 74, beat = 60/BPM;
+    let bar = 0, nextTime = audioCtx.currentTime + 0.1;
+
+    function kick(t2){
+      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.frequency.setValueAtTime(120, t2);
+      o.frequency.exponentialRampToValueAtTime(45, t2 + 0.12);
+      g.gain.setValueAtTime(0.9, t2);
+      g.gain.exponentialRampToValueAtTime(0.001, t2 + 0.25);
+      o.connect(g); g.connect(master); o.start(t2); o.stop(t2 + 0.3);
+    }
+    function hat(t2, open){
+      const b = audioCtx.createBuffer(1, audioCtx.sampleRate*0.08, audioCtx.sampleRate);
+      const d = b.getChannelData(0);
+      for(let i=0;i<d.length;i++) d[i] = Math.random()*2-1;
+      const s = audioCtx.createBufferSource(); s.buffer = b;
+      const hp = audioCtx.createBiquadFilter(); hp.type='highpass'; hp.frequency.value = 7000;
+      const g = audioCtx.createGain();
+      g.gain.setValueAtTime(open ? 0.16 : 0.09, t2);
+      g.gain.exponentialRampToValueAtTime(0.001, t2 + (open ? 0.2 : 0.05));
+      s.connect(hp); hp.connect(g); g.connect(master); s.start(t2);
+    }
+    function bass(t2, f){
+      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = 'sine'; o.frequency.value = f/2;
+      g.gain.setValueAtTime(0.0, t2);
+      g.gain.linearRampToValueAtTime(0.35, t2 + 0.03);
+      g.gain.exponentialRampToValueAtTime(0.001, t2 + beat*1.6);
+      o.connect(g); g.connect(master); o.start(t2); o.stop(t2 + beat*1.7);
+    }
+    function pad(t2, chord){
+      chord.forEach(f => {
+        const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+        o.type = 'triangle'; o.frequency.value = f;
+        o.detune.value = (Math.random()*10-5);
+        g.gain.setValueAtTime(0, t2);
+        g.gain.linearRampToValueAtTime(0.055, t2 + 0.4);
+        g.gain.linearRampToValueAtTime(0.0, t2 + beat*4);
+        o.connect(g); g.connect(master); o.start(t2); o.stop(t2 + beat*4.1);
+      });
+    }
+    function sparkle(t2){
+      if(Math.random() < 0.55){
+        const f = A_MINOR[Math.floor(Math.random()*A_MINOR.length)] * 2;
+        const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+        o.type = 'sine'; o.frequency.value = f;
+        g.gain.setValueAtTime(0.09, t2);
+        g.gain.exponentialRampToValueAtTime(0.001, t2 + 0.5);
+        o.connect(g); g.connect(master); o.start(t2); o.stop(t2 + 0.55);
+      }
+    }
+    function scheduleBar(t2){
+      const chord = CHORDS[bar % CHORDS.length];
+      pad(t2, chord);
+      bass(t2, chord[0]);
+      bass(t2 + beat*2.5, chord[0]);
+      kick(t2); kick(t2 + beat*1.5); kick(t2 + beat*2.5);
+      for(let i=0;i<8;i++) hat(t2 + beat*0.5*i, i===7);
+      sparkle(t2 + beat*(1 + Math.floor(Math.random()*3)));
+      bar++;
+    }
+    schedulerId = setInterval(() => {
+      while(nextTime < audioCtx.currentTime + 0.5){
+        scheduleBar(nextTime);
+        nextTime += beat*4;
+      }
+    }, 200);
+    musicOn = true;
+    window._masterGain = master;
+    document.body.classList.add('music-on');
+  }
+  function stopMusic(){
+    if(schedulerId) clearInterval(schedulerId);
+    if(window._masterGain){
+      window._masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.4);
+    }
+    setTimeout(() => { if(audioCtx){ audioCtx.suspend(); } }, 500);
+    musicOn = false;
+    document.body.classList.remove('music-on');
+  }
+  function toggleMusic(){
+    if(musicOn){ stopMusic(); showToast("tape stopped."); }
+    else {
+      if(audioCtx && audioCtx.state === 'suspended'){ audioCtx.close(); audioCtx = null; }
+      startMusic();
+      showToast("▶ evidence tape 001 — generative lo-fi, made live in your browser 🔥");
+    }
+  }
+  document.getElementById('audioBtn').addEventListener('click', toggleMusic);
+  document.getElementById('audioBtnMobile').addEventListener('click', toggleMusic);
+
+  // ============ Toast ============
   const toast = document.getElementById('toast');
   let toastTimer;
   function showToast(msg){
     toast.textContent = msg;
     toast.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
   }
 
   // ============ EASTER EGG 1: the button ============
@@ -493,7 +761,6 @@
       dangerBtn.classList.remove('danger-btn--angry');
       dangerBtn.classList.add('danger-btn--won');
       dangerBtn.disabled = true;
-      // confetti of brass sparks
       for(let i=0;i<60;i++){
         setTimeout(() => {
           const r = dangerBtn.getBoundingClientRect();
@@ -507,7 +774,7 @@
     }
   });
 
-  // ============ EASTER EGG 2: seal → classified overlay (click 5x) ============
+  // ============ EASTER EGG 2: seal → classified (5 clicks) ============
   let sealClicks = 0;
   const classified = document.getElementById('classified');
   document.getElementById('railSeal').addEventListener('click', () => {
@@ -517,7 +784,7 @@
   });
   document.getElementById('classifiedClose').addEventListener('click', () => classified.classList.remove('open'));
 
-  // ============ EASTER EGG 3: Konami code → barrel roll ============
+  // ============ EASTER EGG 3: Konami → barrel roll ============
   const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
   let kIdx = 0;
   window.addEventListener('keydown', e => {
@@ -532,7 +799,7 @@
     }
   });
 
-  // ============ EASTER EGG 4: triple-click the stamp ============
+  // ============ EASTER EGG 4: triple-click stamp ============
   let stampClicks = 0, stampTimer;
   document.getElementById('stamp').addEventListener('click', () => {
     stampClicks++;
@@ -546,16 +813,25 @@
     }
   });
 
-  // ============ EASTER EGG 5: type "chess" anywhere ============
+  // ============ EASTER EGG 5: type "chess" / "dragon" ============
   let typed = "";
   window.addEventListener('keypress', e => {
-    typed = (typed + e.key).slice(-5);
-    if(typed === "chess") showToast("1. e4 — your move. (FIDE-rated, remember?)");
+    typed = (typed + e.key).slice(-6);
+    if(typed.endsWith("chess")) showToast("1. e4 — your move. (FIDE-rated, remember?)");
+    if(typed.endsWith("dragon")) showToast("📖 The fantasy series has dragons? Neither confirmed nor denied. TBA.");
   });
 
-  // ============ EASTER EGG 6: console ============
+  // ============ EASTER EGG 6: hold EXHIBIT A photo ============
+  let holdTimer;
+  photoCard.addEventListener('pointerdown', () => {
+    holdTimer = setTimeout(() => showToast("Naughty Corner (whiteboard, background, top left). We saw it too."), 900);
+  });
+  photoCard.addEventListener('pointerup', () => clearTimeout(holdTimer));
+  photoCard.addEventListener('pointerleave', () => clearTimeout(holdTimer));
+
+  // ============ EASTER EGG 7: console ============
   console.log("%cFILE NO. 2029-09 — RESTRICTED", "font-family:monospace;font-size:16px;color:#E4BE4A;background:#0B1220;padding:8px 14px;border:1px solid #C9A227;");
-  console.log("%cInspecting the file, are we? Try the Konami code. Or click the seal 5 times. Or type 'chess'.", "font-family:monospace;color:#9AA3B5;");
+  console.log("%cInspecting the file, are we? Try: Konami code · click the seal 5x · type 'chess' · type 'dragon' · press-and-hold Exhibit A · the button you were told not to click.", "font-family:monospace;color:#9AA3B5;");
   </script>
 </body>
 </html>
