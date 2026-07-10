@@ -1,260 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nirbav Sankar - Case File</title>
-    <meta name="description" content="Nirbav Sankar - Founder, Aspire.ai. NASA Citizen Scientist. MUN Delegate. Researcher.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
-    <link href="https://fonts.googleapis.com/css2?
-     family=Fraunces:opsz,wght@9..144,400,9..144,600,9..144,900&family=Public+Sans:wght@400,500,600,700&family=IBM+Plex+Mono:wght@400,500,600&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nirbav Sankar — Case File</title>
+  <meta name="description" content="Nirbav Sankar — Founder, Aspire.AI. NASA Citizen Scientist. MUN Delegate. Researcher.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="rail" aria-label="Section navigation">
-        <div class="rail_mark"> N.S.</div>
-        <div class="rail__tabs" id="railtabs">
-            <a class="rail__tab" data-target="hero">Cover</a>
-            <a class="rail__tab" data-target="about">About</a>
-            <a class="rail__tab" data-target="trajectory">Track Record</a>
-            <a class="rail__tab" data-target="ventures">Ventures</a>
-            <a class="rail__tab" data-target="education">Education</a>
-            <a class="rail__tab" data-target="contact">Contact</a>
+  <!-- click spark layer -->
+  <canvas id="sparkCanvas" aria-hidden="true"></canvas>
+
+  <nav class="rail" aria-label="Section navigation">
+    <div class="rail__mark">N.S.</div>
+    <div class="rail__tabs" id="railTabs">
+      <a class="rail__tab" data-target="hero" data-text="Cover">Cover</a>
+      <a class="rail__tab" data-target="about" data-text="About">About</a>
+      <a class="rail__tab" data-target="trajectory" data-text="Track Record">Track Record</a>
+      <a class="rail__tab" data-target="ventures" data-text="Ventures">Ventures</a>
+      <a class="rail__tab" data-target="education" data-text="Education">Education</a>
+      <a class="rail__tab" data-target="contact" data-text="Contact">Contact</a>
+    </div>
+    <div class="rail__seal" id="railSeal" title="">EST<br>2029</div>
+  </nav>
+
+  <div class="mobile-bar">
+    <div class="mobile-bar__mark">N.SANKAR — FILE</div>
+    <button class="mobile-bar__toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a data-target="hero">Cover</a>
+    <a data-target="about">About</a>
+    <a data-target="trajectory">Track Record</a>
+    <a data-target="ventures">Ventures</a>
+    <a data-target="education">Education</a>
+    <a data-target="contact">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section id="hero">
+      <canvas id="starfield"></canvas>
+      <div class="hero-grid"></div>
+      <div class="stamp" id="stamp">Cleared<br>for<br>Ascent</div>
+      <div class="hero-content">
+        <div class="file-tag star-border"><span>FILE NO. 2029-09</span><b>SUBJECT: N. SANKAR</b><span>STATUS: ACTIVE</span></div>
+        <h1 class="name"><span class="decrypt" data-text="Nirbav">Nirbav</span><br><em class="decrypt shiny" data-text="Sankar.">Sankar.</em></h1>
+        <div class="role-lines">
+          <div class="role-line">I'm a founder building tools that turn student ideas into working projects</div>
+          <div class="role-line">I'm a NASA Citizen Scientist, reading light curves for signs of distant worlds</div>
+          <div class="role-line">I'm an MUN delegate, chair, and repeat offender in committee rooms</div>
         </div>
-        <div class="rail__seal">EST<br>2029</div>
-      </nav>
-
-
-
-      <div class="mobile-bar">
-        <div class="mobile-bar_mark">N.SANKAR - FILE</div>
-         <button class="mobile-menu" id="mobileToggle">MENU</button>
+        <div class="hero-meta">
+          <span><b>Dubai, UAE</b>Based &amp; building</span>
+          <span><b>Grade 9</b>GEMS Our Own High School</span>
+          <span><b>Class of 2029</b>Next stop: the world</span>
+        </div>
       </div>
-        <div class="mobile-bar_toggle" id="mobileMenu">
-            <a data-target="hero">Cover</a>
-            <a data-target="about">About</a>
-            <a data-target="trajectory">Track Record</a>
-            <a data-target="ventures">Ventures</a>
-            <a data-target="education">Education</a>
-            <a data-target="contact">Contact</a>
-         </div>
+    </section>
 
-         
-        <section id="hero">
-         <canvas id="starfield"></canvas>
-         <div class="hero-grid"></div>
-         <div class="stamp">Cleared <br>for <br>Ascent</div>
-         <div class="hero-content">
-            <div class="file-tag">FILE NUMBER.2029&#8209;09 &nbsp; &nbsp; <b> SUBJECT: N.SANKAR</b>&nbsp;·&nbsp; STATUS, ACTIVE</div>
-            <h1 class="name">Nirbav<br><em>Sankar.</em></h1>
-            <div class="role-lines">
-                <div class="role-line">I'm the founder building tools that turn student ideas into working projects</div>
-                <div class="role-line">I'm a NASA Citizen Scientist, reading light curves for signs of distant worlds</div>
-                <div class="role-line">I'm an MUN delegate, chair, and repeat offender in committee rooms</div>
-            </div>
-            <div class="hero-meta">
-                <span><b>Dubai, UAE</b>Based &amp; building</span>
-                <span><b>Grade 9</b>GEMS Our Own High School</span>
-                <span><b>Class of 2029</b>Next Stop: the world</span>
-            </div>
-         </div>
-        </section>
-        
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="on-paper">
+      <div class="section-inner reveal">
+        <div class="section-head">
+          <div class="eyebrow">01 — About the subject</div>
+          <h2>My days are diplomacy.<br>My nights are astrophysics.</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p class="lede">I'm fourteen years old, chronically over-committed, and fairly sure sleep is a scheduling problem rather than a biological one.</p>
+            <p>I split my time between Model UN committee rooms and the kind of physics rabbit holes that don't come up in the Grade 9 syllabus — right now, a theoretical spacecraft concept using fusion acceleration and particle accelerators to push toward a meaningful fraction of light speed for interstellar travel.</p>
+            <p>I'm also building in public: Aspire.AI started as a way to help students turn raw ideas into real, working projects instead of just another slide deck, and that same instinct now runs through my work as a co-founder, a NASA Citizen Scientist on stellar occultation data, and Chief of Design on my school's F1 in Schools team.</p>
+            <p>When I'm not doing any of that, I'm writing on Medium about AI and computer science, learning why my microcontrollers keep breaking, or playing FIDE-rated chess.</p>
+          </div>
+          <div class="dossier-card spotlight">
+            <h4>Field notes</h4>
+            <div class="dossier-row"><span>Home base</span><span>Dubai, UAE</span></div>
+            <div class="dossier-row"><span>Current focus</span><span>lunitiAI · Aspire.AI</span></div>
+            <div class="dossier-row"><span>Research interest</span><span>Fusion propulsion</span></div>
+            <div class="dossier-row"><span>Citizen scientist</span><span>Stellar occultation</span></div>
+            <div class="dossier-row"><span>Committee record</span><span>Chair · Delegate · Director</span></div>
+            <div class="dossier-row"><span>Languages</span><span>English, Hindi, Tamil, Arabic</span></div>
+            <div class="dossier-row"><span>Known weaknesses</span><span>Innovation competitions</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-         <section id="about" class="on-paper">
-            <div class="section-inner reveal">
-                <div class="section-head">
-                    <div class="eyebrow">01 - About the subject</div>
-                    <h2>My days are diplomacy <br>My nights are astrophysics</h2>
-                </div>
-                <div class="about-grid">
-                    <div class="about-copy">
-                        <p class="lede">I'm fourteen years old, chronically over-committed, and fairly sure sleep is a scheduling problem rather than a biological one.</p>
-                        <p>I split my time between Model UN committee rooms and the kind of physics rabbit holes that don't come up in the Grade 9 syllabus — right now, a theoretical spacecraft concept using fusion acceleration and particle accelerators to push toward a meaningful fraction of light speed for interstellar travel.</p>
-                        <p>I'm also building in public: Aspire.ai started as a way to help students turn raw ideas into real, working projects instead of just another slide deck, and that same instinct now runs through my work as a co-founder, a NASA citizen scientist on stellar occultation data, and Chief of Design on my school's F1 in Schools team.</p>
-                        <p>When I'm not doing any of that, I'm writing on Medium about AI and computer science, learning why my microcontrollers keep breaking, or playing FIDE-rated chess.</p>
-                    </div>
-                    <div class="dossier-card">
-                        <h4>Field notes</h4>
-                        <div class="dossier now"><span>Home base</span><span>Dubai,UAE</span></div>
-                        <div class="dossier now"><span>Current Focus</span><span>LunitiAI, Aspire.ai</span></div>
-                        <div class="dossier now"><span>Research Interest</span><span>Fusion Propulsion</span></div>
-                        <div class="dossier now"><span>Citizen Sceintist</span><span>Stellar Occulation</span></div>
-                        <div class="dossier now"><span>Committee Record</span><span>Chair, Delegate , Director, Leader</span></div>
-                        <div class="dossier now"><span>Languages</span><span>English, Hindi, Tamil, Arabic</span></div>
-                        <div class="dossier now"><span>Known Weaknesses</span><span>Innovation Competitions</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- ================= TRAJECTORY ================= -->
+    <section id="trajectory">
+      <div class="section-inner reveal">
+        <div class="section-head">
+          <div class="eyebrow">02 — Track record</div>
+          <h2>Current trajectory</h2>
+          <p>Logged chronologically, most recent first — the way a flight path is read.</p>
+        </div>
 
-
-        <section id="trajectory">
-            <div class="section inner reveal">
-                <div class="section-head">
-                    <div class="eyebrow">02 - Track record</div>
-                    <h2>Current trajectory</h2>
-                    <p>Logged chronologically, most recent first - the way a flight path is read.
-                    </p>
-                </div>
-
-                <div class="traj-wrap">
-                    <div class="traj-line-cool">
-                        <svg width="56" height="1" id="trajSvgHolder" style="overflow:visible;">
-            <line x1="28" y1="0" x2="28" y2="1600" stroke="rgba(201,162,39,0.18)" stroke-width="2"/>
-            <line x1="28" y1="0" x2="28" y2="1600" stroke="var(--brass-bright)" stroke-width="2" id="trajProgress" stroke-dasharray="1600" stroke-dashoffset="1600"/>
+        <div class="traj-wrap">
+          <div class="traj-line-col">
+            <svg width="56" height="1" id="trajSvgHolder" style="overflow:visible;">
+              <line x1="28" y1="0" x2="28" y2="1600" stroke="rgba(201,162,39,0.18)" stroke-width="2"/>
+              <line x1="28" y1="0" x2="28" y2="1600" stroke="var(--brass-bright)" stroke-width="2" id="trajProgress" stroke-dasharray="1600" stroke-dashoffset="1600"/>
             </svg>
-                    </div>
-                </div>
+          </div>
 
-            <div class="traj-item"></div>
-            <div class="traj-node"></div>
-            <div class="traj-date">Jun 2026 - Present</div>
-            <h3>Co-Founder</h3>
-            <div class="org">LunitiAI</div>
-            <p class="desc">I'm building an AI co-founder for early-stage builders — running the difficult, unglamorous tasks so founders can focus on structuring the actual startup</p>
+          <div class="traj-items">
+            <div class="traj-item">
+              <div class="traj-node"></div>
+              <div class="traj-date">Jun 2026 — Present</div>
+              <h3>Co-Founder</h3>
+              <div class="org">lunitiAI</div>
+              <p class="desc">I'm building an AI co-founder for early-stage builders — running the difficult, unglamorous tasks so founders can focus on structuring the actual startup.</p>
+            </div>
+
+            <div class="traj-item">
+              <div class="traj-node"></div>
+              <div class="traj-date">May 2026 — Present</div>
+              <h3>Writer</h3>
+              <div class="org">Medium</div>
+              <p class="desc">I write on the intersection of AI and computer science — LLMs applied to research workflows and technical presentation, with a bias toward original, tech-driven ideas over surface-level takes.</p>
+            </div>
+
+            <div class="traj-item">
+              <div class="traj-node"></div>
+              <div class="traj-date">May 2026 — Present</div>
+              <h3>Founder</h3>
+              <div class="org">Aspire.AI</div>
+              <p class="desc">An AI-powered platform for students — opportunity discovery, holistic profile building, and turning raw ideas into shipped work.</p>
+            </div>
+
+            <div class="traj-item">
+              <div class="traj-node"></div>
+              <div class="traj-date">Feb 2026 — Present</div>
+              <h3>Vice President</h3>
+              <div class="org">YouthRise Foundation</div>
+              <p class="desc">I guide initiatives focused on youth development and well-being — stress awareness and personal growth — and help coordinate programs and strategic decisions across the organization.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VENTURES ================= -->
+    <section id="ventures" class="on-paper">
+      <div class="section-inner reveal">
+        <div class="section-head">
+          <div class="eyebrow">03 — Ventures &amp; builds</div>
+          <h2>Things actually shipped —<br>or being shipped.</h2>
+        </div>
+        <div class="venture-list">
+
+          <div class="venture spotlight">
+            <div class="venture-code">V.01</div>
             <div>
-                <div class="traj-item">
-                    <div class="traj-node">
-                        <div class="traj-date">May 2026 - Present</div>
-                        <h3>Writer</h3>
-                        <div class="Medium"></div>
-                        <p class="desc">I write on the intersection of AI and computer science — LLMs applied to research workflows and technical presentation, with a bias toward original, tech-driven ideas over surface-level takes.</p>
-                    </div>
-                    <div class="traj-item">
-                        <div class="traj-node"></div>
-                        <div class="traj-date"> May 2026</div>
-                        <h3>Founder</h3>
-                        <div class="org">AspirationAI (Aspire.AI)</div>
-                        <p class="desc"> I'm part of the fellowship cohort at the AI-powered website builder, testing and building on the platform. </p>
-                    </div>
-                    <div class="traj-item">
-                        <div class="traj-item"></div>
-                        <div class="traj-date">Feb 2026 - Present</div>
-                        <h3>Vice President</h3>
-                        <div class="org">YouthRise Foundation</div>
-                        <p class="desc">I guide initiatives focused on youth development and well-being — stress awareness and personal growth — and help coordinate programs and strategic decisions across the organization.</p>
-                    </div>
-                </div>
+              <h3>Aspire.AI</h3>
+              <p>An AI-powered platform I built for students, helping them turn raw ideas into real, working projects. It supports learning, creativity, and problem-solving through AI tools designed to help students build faster and develop future-ready skills.</p>
+              <div class="venture-tags"><span>Artificial Intelligence</span><span>Product Design</span><span>Founder</span></div>
             </div>
-            </div>
-        </section>
+          </div>
 
-        <section id="ventures" class="on-paper">
-            <div class="section-inner reveal">
-                <div class="section-head">
-                    <div class="eyebrow">03- Ventures &amp;builds</div>
-                    <h2>Things actually shipped - <br> or being shipped.</h2>
-                </div>
-                <div class="venture-list">
-                    <div class="venture-code">V.01</div>
-                </div>
-                <h3>Aspire.Ai</h3>
-                <p>An AI-powered platform I built only for students, helping them turn raw ideas into real, working projects. It supports learning, creativity, and problem-solving through AI tools designed to help students build faster and develop future-ready skills.</p>
-                <div class="venture-tags"><span>Artificial Intelligence</span><span>Product Design </span><span>Founder</span></div>
-            </div>
+          <div class="venture spotlight">
+            <div class="venture-code">V.02</div>
             <div>
-                <div class="venture">
-                    <div class="venture-code">V.02</div>
-                </div>
-                <h3>lunitiAI</h3>
-                <p>An AI co-founder I'm building for early-stage founders — handling the difficult operational tasks of running a startup while the founding team focuses on structure and strategy. Currently pre-launch and building out a waitlist.</p>
-                <div class="venture-tags"><span>Co-Founder</span><span>Early Stages</span></div>
+              <h3>lunitiAI</h3>
+              <p>An AI co-founder I'm building for early-stage founders — handling the difficult operational tasks of running a startup while the founding team focuses on structure and strategy. Currently pre-launch and building out a waitlist.</p>
+              <div class="venture-tags"><span>Co-Founder</span><span>Early Stage</span></div>
             </div>
+          </div>
+
+          <div class="venture spotlight">
+            <div class="venture-code">V.03</div>
             <div>
-                <div class="venture-code">V.03</div>
+              <h3>Interstellar Spacecraft Concept</h3>
+              <p>My independent, theoretical study into a fusion-accelerated spacecraft using particle accelerators to target velocities approaching half the speed of light — a personal research interest I explore alongside competition work.</p>
+              <div class="venture-tags"><span>Theoretical Physics</span><span>Propulsion</span></div>
             </div>
-            <h3>Interstellar Spacecraft Concept</h3>
-            <p>My independent, theoretical study into a fusion-accelerated spacecraft using particle accelerators to target velocities approaching half the speed of light — a personal research interest I explore alongside competition work.</p>
-            <div class="venture-tags"><span>Theoretical Physics</span><span>Propulsion</span></div>
+          </div>
+
+          <div class="venture spotlight">
+            <div class="venture-code">V.04</div>
             <div>
-                <div>
-                    <div class="venture-code">V.04</div>
-                </div>
+              <h3>Team Velora — F1 in Schools</h3>
+              <p>I'm the Chief of Design on a competitive F1 in Schools team. We finished among the top 6 of over 150 teams at the Curtin University Dubai STEM Competition.</p>
+              <div class="venture-tags"><span>Chief of Design</span><span>Top 6 / 150+ teams</span></div>
             </div>
-            <div class="venture">
-                <div class="venture-code">V.04</div>
-            </div>
-            <h3>Team Velora & F1 in Schools</h3>
-            <p>I'm the Chief of Design on Falcon Motorsports, a competitive F1 in Schools team. I also finished among the top 6 of over 150 teams at the Curtin University Dubai STEM Competition</p>
-            <div class="vebture-tags'"><span>Cheief of Design</span> <span>Top 6/ 150+ teams</span></div>
+          </div>
+
+          <div class="venture spotlight">
+            <div class="venture-code">V.05</div>
             <div>
-                <div>
-                    <div class="venture">
-                        <div class="venture-code">V.05</div>
-                    </div>
-                    <h3>Stellar Occultation Research</h3>
-                    <p>I contribute as a NASA Citizen Scientist, analyzing light transit and stellar occultation data as part of ongoing observational astronomy work.</p>
-                    <div class="venture-tags"><span>NASA Citizen science</span><span>Astronomy</span></div>
-                </div>
+              <h3>Stellar Occultation Research</h3>
+              <p>I contribute as a NASA Citizen Scientist, analyzing light transit and stellar occultation data as part of ongoing observational astronomy work.</p>
+              <div class="venture-tags"><span>NASA Citizen Science</span><span>Astronomy</span></div>
             </div>
+          </div>
 
-        </section>
-         
+        </div>
+      </div>
+    </section>
 
+    <!-- ================= EDUCATION ================= -->
+    <section id="education">
+      <div class="section-inner reveal">
+        <div class="section-head">
+          <div class="eyebrow">04 — Education &amp; honors</div>
+          <h2>Credentials on file</h2>
+        </div>
+        <div class="ed-grid">
+          <div class="ed-block">
+            <h3>GEMS Our Own High School — Al Warqa'a</h3>
+            <div class="sub">CBSE · Grade 9 · 2024 — 2029</div>
+            <p>I follow the Central Board of Secondary Education (CBSE) curriculum, and I'm active in Model United Nations, Debate Club, Public Speaking, the Coding &amp; Programming Club, STEM events, and inter-school competitions.</p>
+            <ul class="honor-list">
+              <li><b>GEMS Innovation Challenge</b><span>Bronze · 2026</span></li>
+              <li><b>SOF Multi-Subject Olympiads</b><span>Gold Medalist</span></li>
+              <li><b>FIDE-Rated Chess</b><span>Active player</span></li>
+            </ul>
+          </div>
+          <div class="ed-block">
+            <h3>MUN Circuit</h3>
+            <div class="sub">Chair · Delegate · Director · Manager</div>
+            <p>I'm a recurring presence across school and open MUN conferences, moving between the delegate's chair and the dais.</p>
+            <ul class="honor-list">
+              <li><b>Best Chair</b><span>Awarded</span></li>
+              <li><b>Best Delegate</b><span>Awarded</span></li>
+              <li><b>Best Research</b><span>Awarded</span></li>
+              <li><b>Litigation Law Simulation</b><span>Mayer Brown / Forage · 2026</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- ================= CONTACT ================= -->
+    <section id="contact">
+      <div class="section-inner reveal">
+        <div class="contact-inner">
+          <div>
+            <div class="eyebrow">05 — Close the file, open a conversation</div>
+            <h2>Got an idea to pitch?<br>I gotchu.</h2>
+            <p>I'm always open to conversations about AI, research collaborations, Model UN, or the next competition worth losing sleep over.</p>
 
-        <section id="education">
-            <div class="section-inner reveal">
-                <div class="section-head">
-                    <div class="eyebrow">04 - Education &amp; honors</div>
-                    <h2>Credentials on file</h2>
-                </div>
-                <div class="ed-grid">
-                    <div class="ed-block">
-                        <h3>GEMS Our Own High School - Al Warqa'a</h3>
-                        <div class="sub">Middle School Diploma Grade 9  Oct 2024 - Oct 2029</div>
-                        <p>I follow the Central Board of Secondary Education (CBSE) curriculum, and I'm active in Model United Nations, Debate Club, Public Speaking, the Coding &amp; Programming Club, STEM events, and inter-school competitions</p>
-                        <ul class="honor-list">
-                            <li><b>GEMS Innovation Challenge</b><span>Bronze · 2026</span></li>
-                            <li><b>SOF Multi-Subject Olympiads</b><span>Gold Medalist</span></li>
-                            <li><b>FIDE-Rated Chess</b><span>Active player</span></li>
-                        </ul>
-                    </div>
-                    <div class="ed-block">
-                        <h3>MUN Circuit</h3>
-                        <div class="sub">Chair · Delegate · Director · Manager</div>
-                        <p>I'm a recurring presence across school and open MUN conferences, moving between the delegate's chair and the dais.</p>
-                        <ul class="honor-list">
-                            <li><b>Best Chair</b><span>Awarded</span></li>
-                            <li><b>Best Delegate</b><span>Awarded</span></li>
-                            <li><b>Best Research</b><span>Awarded</span></li>
-                            <li><b>Litigation Law Simulation</S></b><span>Mayer Brown/ Forage' 2026</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <!-- EASTER EGG: the button -->
+            <button class="danger-btn" id="dangerBtn">DO NOT CLICK</button>
+          </div>
+          <div class="contact-links">
+            <a class="magnet" href="https://www.linkedin.com/in/nirbav-sankar-9b287b400/" target="_blank" rel="noopener">LinkedIn <span>→ Connect</span></a>
+            <a class="magnet" href="#hero" data-target="hero">Back to cover <span>↑ Top</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+  </main>
 
+  <footer>
+    <span>FILE NO. 2029-09 · NIRBAV SANKAR</span>
+    <span id="footerHint">DUBAI, UAE · CLASS OF 2029</span>
+  </footer>
 
-        <section id="contact">
-            <div class="section-inner">
-                <div class="contact-inner">
-                    <div>
-                        <div class="eyebrow">05 - Close the file, open a conversation</div>
-                        <h2>Got an idea to pitch?<br>I gotchu</h2>
-                        <p>I'm always open to conversations about AI, research collaborations, Model UN, or the next competition worth losing sleep over.</p>
-                    </div>
-                    <div class="contact-links">
-                        <a href="https://www.linkedin.com/in/nirbav-sankar-9b287b400/" target="_blank" rel="noopener">Linkeden <span> ->Connect</span></a>
-                        <a href="#hero" data-target="hero">Back to cover <span>Top</span></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- secret overlay -->
+  <div class="classified" id="classified" role="dialog" aria-modal="true">
+    <div class="classified__card">
+      <div class="classified__stamp">TOP SECRET</div>
+      <h3>ADDENDUM — EYES ONLY</h3>
+      <p>Subject has been observed sleeping. Twice. Investigation ongoing.</p>
+      <p class="classified__small">You found the seal. There are more.</p>
+      <button id="classifiedClose">Reseal file</button>
+    </div>
+  </div>
 
-        <main>
+  <div class="toast" id="toast"></div>
 
-            <footer>
-                <span>FILE NO.2029-09' NIRBAV SANKAR</span>
-                <span>DUBAI,UAE' CLASS OF 2029</span>
-            </footer>
-
-            <script>
-               const canvas = document.getElementById('starfield');
+  <script>
+  // ============ Starfield ============
+  const canvas = document.getElementById('starfield');
   const ctx = canvas.getContext('2d');
   let stars = [];
   function sizeCanvas(){
@@ -285,81 +310,252 @@
     t += 0.02;
     if(!prefersReduced) requestAnimationFrame(drawStars);
   }
-  sizeCanvas();
-  drawStars();
+  sizeCanvas(); drawStars();
   window.addEventListener('resize', sizeCanvas);
 
-  // ---------- Reveal on scroll ----------
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
+  // ============ ReactBits: DecryptedText (hero name) ============
+  const GLYPHS = "!<>-_\\/[]{}—=+*^?#________";
+  function decrypt(el){
+    const target = el.dataset.text;
+    if(prefersReduced){ el.textContent = target; return; }
+    let frame = 0;
+    const total = 34;
+    const iv = setInterval(() => {
+      frame++;
+      el.textContent = target.split('').map((ch, i) => {
+        if(ch === ' ') return ' ';
+        const revealAt = (i + 1) / target.length * (total * 0.7);
+        return frame > revealAt ? ch : GLYPHS[Math.floor(Math.random()*GLYPHS.length)];
+      }).join('');
+      if(frame >= total){ el.textContent = target; clearInterval(iv); }
+    }, 38);
+  }
+  document.querySelectorAll('.decrypt').forEach((el, i) => setTimeout(() => decrypt(el), 250 + i*300));
+
+  // ============ ReactBits: TextScramble on hover (rail tabs) ============
+  document.querySelectorAll('.rail__tab').forEach(tab => {
+    let iv = null;
+    tab.addEventListener('mouseenter', () => {
+      if(prefersReduced) return;
+      const target = tab.dataset.text;
+      let frame = 0;
+      clearInterval(iv);
+      iv = setInterval(() => {
+        frame++;
+        tab.textContent = target.split('').map((ch, i) =>
+          frame > i + 2 ? ch : GLYPHS[Math.floor(Math.random()*GLYPHS.length)]
+        ).join('');
+        if(frame > target.length + 2){ tab.textContent = target; clearInterval(iv); }
+      }, 30);
+    });
+    tab.addEventListener('mouseleave', () => { clearInterval(iv); tab.textContent = tab.dataset.text; });
+  });
+
+  // ============ ReactBits: SpotlightCard ============
+  document.querySelectorAll('.spotlight').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // ============ ReactBits: ClickSpark ============
+  const sc = document.getElementById('sparkCanvas');
+  const sctx = sc.getContext('2d');
+  let sparks = [];
+  function sizeSpark(){ sc.width = innerWidth; sc.height = innerHeight; }
+  sizeSpark(); window.addEventListener('resize', sizeSpark);
+  window.addEventListener('click', e => {
+    if(prefersReduced) return;
+    for(let i=0;i<8;i++){
+      const a = (Math.PI*2/8)*i;
+      sparks.push({x:e.clientX, y:e.clientY, a, life:1});
+    }
+  });
+  (function sparkLoop(){
+    sctx.clearRect(0,0,sc.width,sc.height);
+    sparks = sparks.filter(s => s.life > 0);
+    sparks.forEach(s => {
+      s.life -= 0.05;
+      const d = (1 - s.life) * 26;
+      const len = 10 * s.life;
+      sctx.strokeStyle = 'rgba(228,190,74,' + s.life + ')';
+      sctx.lineWidth = 2;
+      sctx.beginPath();
+      sctx.moveTo(s.x + Math.cos(s.a)*d, s.y + Math.sin(s.a)*d);
+      sctx.lineTo(s.x + Math.cos(s.a)*(d+len), s.y + Math.sin(s.a)*(d+len));
+      sctx.stroke();
+    });
+    requestAnimationFrame(sparkLoop);
+  })();
+
+  // ============ ReactBits: Magnet (contact links) ============
+  document.querySelectorAll('.magnet').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      if(prefersReduced) return;
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width/2) * 0.15;
+      const y = (e.clientY - r.top - r.height/2) * 0.3;
+      el.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    el.addEventListener('mouseleave', () => el.style.transform = '');
+  });
+
+  // ============ Reveal on scroll ============
+  const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.12 });
-  revealEls.forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // ---------- Trajectory line progress + node activation ----------
-  const trajSection = document.getElementById('trajectory');
+  // ============ Trajectory line ============
   const trajProgress = document.getElementById('trajProgress');
-  const trajItems = document.querySelectorAll('.traj-item');
   const trajLineHolder = document.getElementById('trajSvgHolder');
-
+  const trajItems = document.querySelectorAll('.traj-item');
   function updateTrajectory(){
     const wrap = document.querySelector('.traj-wrap');
     if(!wrap) return;
     const totalHeight = wrap.offsetHeight;
-    trajLineHolder.querySelectorAll('line').forEach(l => {
-      l.setAttribute('y2', totalHeight);
-    });
+    trajLineHolder.querySelectorAll('line').forEach(l => l.setAttribute('y2', totalHeight));
     trajProgress.setAttribute('stroke-dasharray', totalHeight);
-
     const rect = wrap.getBoundingClientRect();
     const viewportCenter = window.innerHeight * 0.6;
-    let progressPx = viewportCenter - rect.top;
-    progressPx = Math.max(0, Math.min(totalHeight, progressPx));
+    let progressPx = Math.max(0, Math.min(totalHeight, viewportCenter - rect.top));
     trajProgress.setAttribute('stroke-dashoffset', totalHeight - progressPx);
-
     trajItems.forEach(item => {
-      const r = item.getBoundingClientRect();
-      if(r.top < viewportCenter){ item.classList.add('active'); }
-      else { item.classList.remove('active'); }
+      item.classList.toggle('active', item.getBoundingClientRect().top < viewportCenter);
     });
   }
   window.addEventListener('scroll', updateTrajectory, { passive:true });
   window.addEventListener('resize', updateTrajectory);
   updateTrajectory();
 
-  // ---------- Nav: active tab + smooth scroll ----------
-  const tabs = document.querySelectorAll('.rail__tab, .mobile-menu a, .contact-links a[data-target]');
-  const sections = document.querySelectorAll('main section, #hero');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', (e) => {
+  // ============ Nav ============
+  document.querySelectorAll('[data-target]').forEach(tab => {
+    tab.addEventListener('click', e => {
       e.preventDefault();
-      const id = tab.getAttribute('data-target');
-      document.getElementById(id).scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
+      const el = document.getElementById(tab.dataset.target);
+      if(el) el.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
       document.getElementById('mobileMenu').classList.remove('open');
     });
   });
-
   const railTabs = document.querySelectorAll('.rail__tab');
-  const spy = new IntersectionObserver((entries) => {
+  const spy = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      const id = entry.target.id;
-      const link = document.querySelector(`.rail__tab[data-target="${id}"]`);
+      if(!entry.isIntersecting) return;
+      const link = document.querySelector(`.rail__tab[data-target="${entry.target.id}"]`);
       if(!link) return;
-      if(entry.isIntersecting){
-        railTabs.forEach(t => t.classList.remove('active'));
-        link.classList.add('active');
-      }
+      railTabs.forEach(t2 => t2.classList.remove('active'));
+      link.classList.add('active');
     });
   }, { threshold: 0.4, rootMargin: '-20% 0px -60% 0px' });
-  document.querySelectorAll('main section, #hero').forEach(s => spy.observe(s));
+  document.querySelectorAll('main section').forEach(s => spy.observe(s));
 
-  // ---------- Mobile menu ----------
   document.getElementById('mobileToggle').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('open');
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+    document.getElementById('mobileToggle').setAttribute('aria-expanded', menu.classList.contains('open'));
   });
-</script>
-        </main>
-      
-    
+
+  // ============ Toast helper ============
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+  }
+
+  // ============ EASTER EGG 1: the button ============
+  const dangerBtn = document.getElementById('dangerBtn');
+  const dangerStages = [
+    "DO NOT CLICK",
+    "don't click me",
+    "bro. seriously.",
+    "you are jobless",
+    "STOP",
+    "I'm calling the chair",
+    "point of personal privilege: STOP",
+    "this is going in your file",
+    "ok that's 8 clicks. FIDE-rated persistence.",
+    "fine. you win. 🏆"
+  ];
+  let dangerIdx = 0;
+  dangerBtn.addEventListener('click', () => {
+    dangerIdx++;
+    if(dangerIdx < dangerStages.length){
+      dangerBtn.textContent = dangerStages[dangerIdx];
+      dangerBtn.style.transform = `rotate(${(Math.random()*8-4).toFixed(1)}deg) scale(${1 + dangerIdx*0.02})`;
+      if(dangerIdx >= 4) dangerBtn.classList.add('danger-btn--angry');
+    } else {
+      dangerBtn.textContent = "ACHIEVEMENT: CERTIFIED JOBLESS";
+      dangerBtn.classList.remove('danger-btn--angry');
+      dangerBtn.classList.add('danger-btn--won');
+      dangerBtn.disabled = true;
+      // confetti of brass sparks
+      for(let i=0;i<60;i++){
+        setTimeout(() => {
+          const r = dangerBtn.getBoundingClientRect();
+          for(let j=0;j<8;j++){
+            const a = Math.random()*Math.PI*2;
+            sparks.push({x:r.left + Math.random()*r.width, y:r.top + Math.random()*r.height, a, life:1});
+          }
+        }, i*30);
+      }
+      showToast("Achievement unlocked: Certified Jobless. It's now stamped in your file.");
+    }
+  });
+
+  // ============ EASTER EGG 2: seal → classified overlay (click 5x) ============
+  let sealClicks = 0;
+  const classified = document.getElementById('classified');
+  document.getElementById('railSeal').addEventListener('click', () => {
+    sealClicks++;
+    if(sealClicks === 3) showToast("...why are you clicking the seal");
+    if(sealClicks >= 5){ classified.classList.add('open'); sealClicks = 0; }
+  });
+  document.getElementById('classifiedClose').addEventListener('click', () => classified.classList.remove('open'));
+
+  // ============ EASTER EGG 3: Konami code → barrel roll ============
+  const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let kIdx = 0;
+  window.addEventListener('keydown', e => {
+    kIdx = (e.key === konami[kIdx]) ? kIdx + 1 : (e.key === konami[0] ? 1 : 0);
+    if(kIdx === konami.length){
+      kIdx = 0;
+      if(!prefersReduced){
+        document.body.classList.add('barrel');
+        setTimeout(() => document.body.classList.remove('barrel'), 1200);
+      }
+      showToast("CLEARED FOR ASCENT 🚀 (konami accepted)");
+    }
+  });
+
+  // ============ EASTER EGG 4: triple-click the stamp ============
+  let stampClicks = 0, stampTimer;
+  document.getElementById('stamp').addEventListener('click', () => {
+    stampClicks++;
+    clearTimeout(stampTimer);
+    stampTimer = setTimeout(() => stampClicks = 0, 600);
+    if(stampClicks === 3){
+      const s = document.getElementById('stamp');
+      s.innerHTML = "Denied<br>(just<br>kidding)";
+      setTimeout(() => s.innerHTML = "Cleared<br>for<br>Ascent", 2000);
+      stampClicks = 0;
+    }
+  });
+
+  // ============ EASTER EGG 5: type "chess" anywhere ============
+  let typed = "";
+  window.addEventListener('keypress', e => {
+    typed = (typed + e.key).slice(-5);
+    if(typed === "chess") showToast("1. e4 — your move. (FIDE-rated, remember?)");
+  });
+
+  // ============ EASTER EGG 6: console ============
+  console.log("%cFILE NO. 2029-09 — RESTRICTED", "font-family:monospace;font-size:16px;color:#E4BE4A;background:#0B1220;padding:8px 14px;border:1px solid #C9A227;");
+  console.log("%cInspecting the file, are we? Try the Konami code. Or click the seal 5 times. Or type 'chess'.", "font-family:monospace;color:#9AA3B5;");
+  </script>
 </body>
 </html>
