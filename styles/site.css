@@ -38,7 +38,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; line-height: 1.08; letter-spacing: -0.
 }
 .grain {
   position: fixed; inset: 0; pointer-events: none; z-index: 60;
-  background: url('../public/img/grain.svg');
+  background: url('../assets/img/grain.svg');
   opacity: 0.03;
 }
 main, header.nav, footer { position: relative; z-index: 1; }
@@ -323,8 +323,8 @@ footer .ghost { pointer-events: auto; font-size: 27vw; text-align: center; margi
   position: absolute; width: 24px; height: 28px; padding: 0; border: 0; cursor: crosshair;
   pointer-events: auto; rotate: var(--r);
   background: var(--accent);
-  -webkit-mask: url('../public/img/bug.svg') center / contain no-repeat;
-  mask: url('../public/img/bug.svg') center / contain no-repeat;
+  -webkit-mask: url('../assets/img/bug.svg') center / contain no-repeat;
+  mask: url('../assets/img/bug.svg') center / contain no-repeat;
   animation: wiggle .35s ease-in-out infinite alternate;
 }
 .bug.boca { background: linear-gradient(#103f79 0 42%, #f3b229 42% 62%, #103f79 62%); }

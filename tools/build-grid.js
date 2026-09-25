@@ -3,8 +3,8 @@ const fs = require('fs');
 let s = fs.readFileSync('index.html', 'utf8');
 
 // Tile pool: [key, html]. At most two copies of anything; copies are kept apart by the solver.
-const logo = (f) => `<span class="gm-tile gm-logo"><img src="public/img/${f}" alt="" loading="lazy" decoding="async"></span>`;
-const photo = (f) => `<span class="gm-tile gm-img"><img src="public/img/${f}" alt="" loading="lazy" decoding="async"></span>`;
+const logo = (f) => `<span class="gm-tile gm-logo"><img src="assets/img/${f}" alt="" loading="lazy" decoding="async"></span>`;
+const photo = (f) => `<span class="gm-tile gm-img"><img src="assets/img/${f}" alt="" loading="lazy" decoding="async"></span>`;
 const text = (t, accent) => `<span class="gm-tile${accent ? ' gm-accent' : ''}">${t}</span>`;
 const pool = [];
 const add = (key, html, n = 1) => { for (let i = 0; i < n; i++) pool.push({ key, html, accent: html.includes('gm-accent') }); };
