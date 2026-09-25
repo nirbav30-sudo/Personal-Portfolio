@@ -1,0 +1,61 @@
+/* Design tokens. The whole site recolours from --h (and --l, which only
+   moves where a hue would otherwise fail 4.5:1 contrast — see ASSUMPTIONS.md). */
+
+@property --h {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 148;
+}
+
+@property --l {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 58%;
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../public/fonts/space-mono-400-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../public/fonts/space-mono-700-latin.woff2') format('woff2');
+}
+
+:root {
+  --h: 148;                       /* section hue, set by js/hue.js */
+  --l: 58%;                       /* accent lightness, per section */
+  --drift: 0;                     /* ambient ±6 wobble, set per frame */
+  --hue: calc(var(--h) + var(--drift));
+  --s: 74%;
+
+  --accent: hsl(var(--hue) var(--s) var(--l));
+  --accent-dim: hsl(var(--hue) var(--s) calc(var(--l) - 16%));
+  --glow: hsl(var(--hue) var(--s) 50% / 0.22);
+  --bg: hsl(var(--hue) 24% 4%);
+  --panel: hsl(var(--hue) 18% 7%);
+  --line: hsl(var(--hue) 20% 16%);
+  --ink: hsl(var(--hue) 8% 92%);
+  --ink-mute: hsl(var(--hue) 8% 58%);
+
+  --font-mono: 'Space Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --font-sans: 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius: 10px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1200px;
+
+  transition: --h 1.2s linear, --l 1.2s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { transition: none; }
+}

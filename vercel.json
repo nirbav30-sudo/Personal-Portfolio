@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "has": [{ "type": "host", "value": "app.muntool.nirbav.com" }],
+      "source": "/",
+      "destination": "/muntool/index.html"
+    },
+    {
+      "has": [{ "type": "host", "value": "app.muntool.nirbav.com" }],
+      "source": "/:path*",
+      "destination": "/muntool/:path*"
+    }
+  ]
+}
