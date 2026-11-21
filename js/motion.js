@@ -9,7 +9,7 @@
   const fine = matchMedia('(pointer: fine)').matches;
 
   /* 1. reveal on scroll, staggered within each group */
-  const groups = ['.marker', '.section-title', 'section:not(.hero) .lede', '.into-grid > *', '.cards > li', '.tl-year', '.tl-items > li', '.writing > li', '.thesis p', '.contact .btn', '.contact .links li'];
+  const groups = ['.marker', '.section-title', 'section:not(.hero) .lede', '.into-grid > *', '.rows > li', '.tl-year', '.tl-items > li', '.writing > li', '.thesis p', '.contact .btn', '.contact .links li'];
   const targets = [];
   groups.forEach(sel => $$(sel).forEach((el, i) => {
     el.classList.add('rv');

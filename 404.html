@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 · Nirbav Sankar</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#060d09">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600&display=swap">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/site.css">
+<style>
+  .nf { min-height: 100vh; display: grid; place-content: center; text-align: center; padding: 40px 16px; position: relative; z-index: 1; }
+  .nf-number { font-size: clamp(7rem, 28vw, 18rem); font-weight: 600; line-height: .85; letter-spacing: -.06em; color: transparent; -webkit-text-stroke: 1px var(--accent); }
+  .nf-path { color: var(--accent); margin: 18px 0 10px; word-break: break-all; }
+  .nf-lede { color: var(--ink-mute); max-width: 40ch; margin: 0 auto 28px; }
+  .nf-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="halftone" aria-hidden="true"></div>
+<main class="nf">
+  <div class="nf-number" aria-hidden="true">404</div>
+  <h1 class="mono nf-path">/ page not found</h1>
+  <p class="nf-lede">This page doesn't exist, or it never shipped.</p>
+  <div class="nf-links">
+    <a class="btn btn-solid" href="/">Back home</a>
+    <a class="btn btn-ghost" href="/#software">See what I've built</a>
+  </div>
+</main>
+<script>document.querySelector('.nf-path').textContent = location.pathname + ' · not found';</script>
+</body>
+</html>
